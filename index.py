@@ -18,7 +18,7 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/')
-@app.route('/<name>')
+# @app.route('/<name>')
 def hello(name=""):
   global count
   count +=1
