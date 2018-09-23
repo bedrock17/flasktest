@@ -1,10 +1,21 @@
+import os
 from flask import Flask
 from flask import render_template
+
+from flask import send_from_directory
+
+
 import sys
 app=Flask(__name__)
 
 
 count = 0
+
+# app.add_url_rule('/favicon.ico', redirect_to="/favicon.ico")
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/')
 @app.route('/<name>')
@@ -14,7 +25,9 @@ def hello(name=""):
   print("handle! {0} ", count)
   return render_template('main.html', name=name, count=count)
 
-	
+
+
+
 
 # @app.route("/hello")
   # return "Hello goorm!"
