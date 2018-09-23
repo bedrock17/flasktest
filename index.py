@@ -1,23 +1,20 @@
 from flask import Flask
+from flask import render_template
 import sys
 app=Flask(__name__)
 
-@app.route("/")
-def hello():
 
-	return """ <html>
-    <head>
-      <title> 호에에에엥 </title>
-      <style>
-        body {
-          color : #fff;
-        }
-      </style>
-    </head>
-    <body bgcolor="#000">
-      호에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에엥
-    </body>
-  </html> """
+count = 0
+
+@app.route('/')
+@app.route('/<name>')
+def hello(name=""):
+  global count
+  count +=1
+  print("handle! {0} ", count)
+  return render_template('main.html', name=name, count=count)
+
+	
 
 # @app.route("/hello")
   # return "Hello goorm!"
