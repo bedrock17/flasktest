@@ -9,15 +9,10 @@
     </style>
   </head>
 
-  <body bgcolor="#000">
-    호에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에에엥
-    <br>
-    {0} 번쨰 방문자 입니다.
-  </body>
-
 </html> -->
 
 <!doctype html>
+<html>
   <head>
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
@@ -39,10 +34,43 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="/favicon-144.png"> -->
     <!-- <meta name="msapplication-config" content="/browserconfig.xml"> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <style>
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    body {
+        padding: 20px;
+        font-family: 'Nanum Gothic';
+    }
+
+    pre {
+        border-top: 1px solid #0af;
+    }
+    </style>
+
     <title> 호에엥</title>
   </head>
+
+  <body>
+    <p>
+    남기고 싶은 글은 남겨보세요.
+    </p>
+      <form method="post" action="/post">
+          <textarea class="form-control" width="300px" name="msg" maxlength="1024" > </textarea> <br>
+          <input class="btn btn-outline-dark" type="submit" value="Submit">
+      </form>
   {% if name %}
     <h1>Hello {{ name }}!</h1>
   {% else %}
-    <h1>Hello, World! {{ count }}!</h1>
+  <font color={{color}}>
+    <h1> {{ count }}!</h1>
+  </font>
   {% endif %}
+
+  {% for msg in msgLst %}
+  <pre class="text-break">{{msg}}</pre>
+  {% endfor %}
+  </body>
+  </html>
