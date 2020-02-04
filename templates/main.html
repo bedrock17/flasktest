@@ -47,6 +47,7 @@
 
     pre {
         border-top: 1px solid #0af;
+        white-space: pre-wrap; /* pre tag내에 word wrap */
     }
     </style>
 
@@ -58,7 +59,7 @@
     남기고 싶은 글은 남겨보세요.
     </p>
       <form method="post" action="/post">
-          <textarea class="form-control" width="300px" name="msg" maxlength="1024" > </textarea> <br>
+          <textarea class="form-control" width="300px" name="msg" maxlength="102400" > </textarea> <br>
           <input class="btn btn-outline-dark" type="submit" value="Submit">
       </form>
   {% if name %}

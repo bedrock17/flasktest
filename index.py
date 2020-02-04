@@ -80,6 +80,10 @@ def post():
     global msgLst
 
     msg = request.form['msg']
+    
+    if len(msg) > 102400:
+        return "MSG TOO LONG"
+
     print(msg)
     msgLst.append(msg)
 
